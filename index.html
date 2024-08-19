@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>App de Conversa</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message received">Olá! Como posso ajudar você hoje?</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+        <button id="send-button">Enviar</button>
+    </div>
+
+    <script>
+        document.getElementById('send-button').onclick = function() {
+            const input = document.getElementById('user-input');
+            const message = input.value;
+            if (message.trim() !== "") {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', 'sent');
+                messageElement.textContent = message;
+                document.getElementById('chat-box').appendChild(messageElement);
+                input.value = '';
+                document.getElementById('chat-box').scrollTop = chat-box.scrollHeight; // rolagem automática
+            }
+        };
+    </script>
+</body>
+</html>
